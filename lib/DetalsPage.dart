@@ -1,20 +1,17 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 
 class DetalsPage extends StatefulWidget {
   DetalsPage({Key? key}) : super(key: key);
-List<String> list=["Medical App","9 hours progress","ggg"
-];
-List<Color>color=[
-  Colors.amber,
-  Colors.cyan,
-  Colors.deepPurple,
-  Colors.deepOrange,
+  List<String> list = ["Medical App", "9 hours progress", "ggg"];
+  List<Color> color = [
+    Colors.amber,
+    Colors.cyan,
+    Colors.deepPurple,
+    Colors.deepOrange,
+  ];
 
-];
   @override
   State<DetalsPage> createState() => _DetalsPageState();
 }
@@ -68,7 +65,8 @@ class _DetalsPageState extends State<DetalsPage> {
                       margin: const EdgeInsets.all(6.0),
                       decoration: const BoxDecoration(),
                       child: const CircleAvatar(
-                        backgroundImage: NetworkImage("https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"),
+                        backgroundImage: NetworkImage(
+                            "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"),
                         radius: 30,
                       ),
                     ),
@@ -182,16 +180,75 @@ class _DetalsPageState extends State<DetalsPage> {
             },
           )),
           SliverGrid.count(
-
             crossAxisCount: 2,
             mainAxisSpacing: 4.0,
             crossAxisSpacing: 3.0,
             childAspectRatio: 0.8,
             children: [
-              MyGrid(Colors.teal,const Text("Medical App",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18,color: Colors.white),),const Text("9 hours progress",style: TextStyle(color: Colors.white),),const Text("25 %",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold)),0.25),
-              MyGrid(Colors.redAccent,const Text("Sport App",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18,color: Colors.white),),const Text("40 hours progress",style: TextStyle(color: Colors.white)),const Text("75 %",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),0.75),
-              MyGrid(Colors.orangeAccent,const Text("Rent App",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18,color: Colors.white),),const Text("18 hours progress",style: TextStyle(color: Colors.white)),const Text("60 %",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold)),0.60),
-              MyGrid(Colors.blueAccent,const Text("Bank App",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18,color: Colors.white),),const Text("18 hours progress",style: TextStyle(color: Colors.white)),const Text("48 %",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold)),0.48),
+              MyGrid(
+                  Colors.teal,
+                  const Text(
+                    "Medical App",
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                        color: Colors.white),
+                  ),
+                  const Text(
+                    "9 hours progress",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  const Text("25 %",
+                      style: TextStyle(
+                          color: Colors.white, fontWeight: FontWeight.bold)),
+                  0.25),
+              MyGrid(
+                  Colors.redAccent,
+                  const Text(
+                    "Sport App",
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                        color: Colors.white),
+                  ),
+                  const Text("40 hours progress",
+                      style: TextStyle(color: Colors.white)),
+                  const Text(
+                    "75 %",
+                    style: TextStyle(
+                        color: Colors.white, fontWeight: FontWeight.bold),
+                  ),
+                  0.75),
+              MyGrid(
+                  Colors.orangeAccent,
+                  const Text(
+                    "Rent App",
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                        color: Colors.white),
+                  ),
+                  const Text("18 hours progress",
+                      style: TextStyle(color: Colors.white)),
+                  const Text("60 %",
+                      style: TextStyle(
+                          color: Colors.white, fontWeight: FontWeight.bold)),
+                  0.60),
+              MyGrid(
+                  Colors.blueAccent,
+                  const Text(
+                    "Bank App",
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                        color: Colors.white),
+                  ),
+                  const Text("18 hours progress",
+                      style: TextStyle(color: Colors.white)),
+                  const Text("48 %",
+                      style: TextStyle(
+                          color: Colors.white, fontWeight: FontWeight.bold)),
+                  0.48),
             ],
           ),
         ],
@@ -223,12 +280,8 @@ Widget MyConytener(Color color, Text text, Text text2, Icon icon) {
   );
 }
 
-
-
-
-
-Widget MyGrid(Color color,Text text,Text text2,Text prisend,double int){
-  return  Padding(
+Widget MyGrid(Color color, Text text, Text text2, Text prisend, double int) {
+  return Padding(
     padding: const EdgeInsets.all(8.0),
     child: Container(
       width: 160,
