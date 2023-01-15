@@ -4,13 +4,6 @@ import 'package:percent_indicator/percent_indicator.dart';
 
 class DetalsPage extends StatefulWidget {
   DetalsPage({Key? key}) : super(key: key);
-  List<String> list = ["Medical App", "9 hours progress", "ggg"];
-  List<Color> color = [
-    Colors.amber,
-    Colors.cyan,
-    Colors.deepPurple,
-    Colors.deepOrange,
-  ];
 
   @override
   State<DetalsPage> createState() => _DetalsPageState();
@@ -19,6 +12,9 @@ class DetalsPage extends StatefulWidget {
 class _DetalsPageState extends State<DetalsPage> {
   @override
   Widget build(BuildContext context) {
+    MediaQueryData mediaQueryData=MediaQuery.of(context);
+    var size=mediaQueryData.size;
+
     return Scaffold(
       body: CustomScrollView(
         slivers: [
@@ -30,7 +26,7 @@ class _DetalsPageState extends State<DetalsPage> {
                 children: const [
                   Icon(Icons.search),
                 ],
-              )
+              ),
             ],
             flexibleSpace: FlexibleSpaceBar(
               background: Container(
@@ -47,8 +43,8 @@ class _DetalsPageState extends State<DetalsPage> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Container(
-                    width: 55,
-                    height: 55,
+                    width: size.height*0.078,
+                    height: size.height*0.078,
                     decoration: const BoxDecoration(
                       shape: BoxShape.circle,
                       gradient: LinearGradient(
@@ -57,6 +53,7 @@ class _DetalsPageState extends State<DetalsPage> {
                           Colors.orange,
                           Colors.red,
                           Colors.red
+
                         ],
                         begin: Alignment.topLeft,
                       ),
@@ -77,17 +74,17 @@ class _DetalsPageState extends State<DetalsPage> {
                   Column(
                     mainAxisAlignment: MainAxisAlignment.end,
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
-                      Text("Philip Maccoy"),
-                      Text("Project Manager"),
+                    children:  [
+                      Text("Philip Maccoy",style: TextStyle(fontSize: size.width*0.05),),
+                      Text("Project Manager",style: TextStyle(fontSize: size.width*0.04),),
                     ],
-                  )
+                  ),
                 ],
               ),
             ),
             pinned: true,
             leading: const Icon(Icons.density_medium),
-            expandedHeight: 240,
+            expandedHeight: size.height *0.270,
             backgroundColor: Colors.orange,
             systemOverlayStyle:
                 const SystemUiOverlayStyle(statusBarColor: Colors.black12),
@@ -117,7 +114,7 @@ class _DetalsPageState extends State<DetalsPage> {
                       ),
                     ),
                   ),
-                )
+                ),
               ],
             ),
           ),
@@ -131,17 +128,18 @@ class _DetalsPageState extends State<DetalsPage> {
                     Column(
                       children: [
                         MyConytener(
-                            Colors.redAccent,
-                            const Text(
-                              "To Do",
-                              style: TextStyle(
-                                  fontSize: 18, fontWeight: FontWeight.bold),
-                            ),
-                            const Text("5 tasks now . 1started"),
-                            const Icon(
-                              Icons.watch_later_outlined,
-                              color: Colors.white,
-                            )),
+                          Colors.redAccent,
+                          const Text(
+                            "To Do",
+                            style: TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.bold),
+                          ),
+                          const Text("5 tasks now . 1started"),
+                          const Icon(
+                            Icons.watch_later_outlined,
+                            color: Colors.white,
+                          ),
+                        ),
                         const SizedBox(
                           height: 12,
                         ),
@@ -173,12 +171,13 @@ class _DetalsPageState extends State<DetalsPage> {
                               color: Colors.white,
                             )),
                       ],
-                    )
+                    ),
                   ],
                 ),
               );
             },
-          )),
+          ),
+          ),
           SliverGrid.count(
             crossAxisCount: 2,
             mainAxisSpacing: 4.0,
@@ -200,7 +199,8 @@ class _DetalsPageState extends State<DetalsPage> {
                   ),
                   const Text("25 %",
                       style: TextStyle(
-                          color: Colors.white, fontWeight: FontWeight.bold)),
+                          color: Colors.white, fontWeight: FontWeight.bold),
+                  ),
                   0.25),
               MyGrid(
                   Colors.redAccent,
@@ -257,7 +257,7 @@ class _DetalsPageState extends State<DetalsPage> {
   }
 }
 
-Widget MyConytener(Color color, Text text, Text text2, Icon icon) {
+Widget MyConytener(Color color, Text text, Text text2, Icon icon){
   return Row(
     children: [
       SizedBox(
@@ -269,7 +269,7 @@ Widget MyConytener(Color color, Text text, Text text2, Icon icon) {
           child: icon,
         ),
       ),
-      SizedBox(
+      const SizedBox(
         width: 12,
       ),
       Column(
@@ -279,6 +279,8 @@ Widget MyConytener(Color color, Text text, Text text2, Icon icon) {
     ],
   );
 }
+
+
 
 Widget MyGrid(Color color, Text text, Text text2, Text prisend, double int) {
   return Padding(
